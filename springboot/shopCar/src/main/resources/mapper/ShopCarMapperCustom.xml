@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shopcar.demo.mapper.ShopCarMapperCustom" >
+
+	<select id="findShopCarByUserId" resultType="shopCarCustom">
+		select shop_car.*,goods.name,goods.picture,goods.price 
+		from shop_car,goods 
+		where shop_car.user_id=#{userId}
+		and shop_car.goods_id=goods.id
+	</select>
+	
+	<select id="findShopCarById" resultType="shopCarCustom">
+    	select * from shop_car where user_id=#{userId} and goods_id=#{goodsId}
+  	</select>
+  
+</mapper>

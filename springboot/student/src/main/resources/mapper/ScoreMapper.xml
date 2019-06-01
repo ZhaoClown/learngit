@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.student.demo.mapper.ScoreMapper" >
+
+  <select id="findScoreById" resultType="scoreCustom">
+  	select * from score where id = #{id}
+  </select>
+  
+  <delete id="deleteScoreById" >
+    delete from score where id = #{id}
+  </delete>
+  
+  <update id="updateScoreById" parameterType="scoreCustom">
+  	update score
+      set chinese = #{chinese},math = #{math},english = #{english}
+      where id = #{id}
+  </update>
+  
+</mapper>
